@@ -1,4 +1,4 @@
-const { executeDELETEQuery } = require('../../src/index');
+const { executeDELETEQuery } = require('../../src/queryExecutor');
 const { readCSV, writeCSV } = require('../../src/csvReader');
 const fs = require('fs');
 
@@ -9,6 +9,7 @@ async function createCoursesCSV() {
         { course_id: '2', course_name: 'Chemistry', instructor: 'Dr. Jones' },
         { course_id: '3', course_name: 'Physics', instructor: 'Dr. Taylor' }
     ];
+    fs.writeFileSync("courses.csv", "");
     await writeCSV('courses.csv', initialData);
 }
 
